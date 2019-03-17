@@ -1,0 +1,22 @@
+{
+  "name": "rectangle",
+  "version": "1.0.0",
+  "description": "矩形计算器  计算矩形的周长和面积",
+  "main": "Gruntfile.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/liye45/rectangle.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/liye45/rectangle/issues"
+  },
+  "homepage": "https://github.com/liye45/rectangle#readme",
+  "devDependencies": {
+    "grunt-contrib-csslint": "^2.0.0"
+  }
+}
