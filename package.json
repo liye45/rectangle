@@ -17,6 +17,10 @@
   },
   "homepage": "https://github.com/liye45/rectangle#readme",
   "devDependencies": {
-    "grunt-contrib-csslint": "^2.0.0"
+    "grunt-contrib-concat": "^1.0.1",
+    "grunt-contrib-csslint": "^2.0.0",
+    "grunt-contrib-cssmin": "^3.0.0",
+    "grunt-contrib-uglify": "^4.0.0",
+    "grunt-filerev": "^2.3.1"
   }
 }
