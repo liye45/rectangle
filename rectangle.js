@@ -1,35 +1,68 @@
 $(function() {
-    var $width = $('#width'),
-        $height = $('#height'),
-        $btnCal = $('#calculate'),
-        $widthValidation=$('#$widthValidation')
-        $heightValidation=$('#$heightValidation')
-        $perimeter = $('#perimeter'),
-        $area = $('#area');
+  var $width = $('#width'),
+      $height = $('#height'),
+      $btnCal = $('#calculate'),
+      $perimeter = $('#perimeter'),
+      $area = $('#area'),
+      $widthValidate = $('#width-validate'),
+      $heightValidate = $('#height-validate'),
+      isPassValidate = false;
+
+  $width.focusout(function() {
+      var result = validate($width.val());
+          isPassValidate = result.isOK;
+          if(!result.isOK) {
+                  $widthValidate.html('宽度' + result.reason);
+                        $width.select();
+                            
+          } else {
+                  $widthValidate.html('');
+                      
+          }
+            
+});
+
+$width.keypress(function(e) {
+  if(!isLegalKey(e.key, e.target.value, e.target.selectionStart)) {
+          e.preventDefault();
+              
+  }
     
-$width.focusout(function(){
-  var w=$width.val();
-  if(w===''){
-    $widthValidation.html('宽度不能为空！');
-    $width.select();
+});
+
+$height.focusout(function() {
+      var result = validate($height.val());
+          isPassValidate = result.isOK;
+          if(!result.isOK) {
+                  $heightValidate.html('高度' + result.reason);
+                        $height.select();
+                            
+          } else {
+                  $heightValidate.html('');
+                      
+          }
+            
+});
+
+$height.keypress(function(e) {
+  if(!isLegalKey(e.key, e.target.value, e.target.selectionStart)) {
+          e.preventDefault();
+              
   }
-})
-$height.focusout(function(){
-  var h=$height.val();
-  if(h===''){
-    $heightValidation.html('高度不能为空！');
-    $height.select();
-  }
-})
-    $btnCal.click(function(){
+    
+});
+
+$btnCal.click(function(){
+      if(!isPassValidate) return;
+
           var w = $width.val(),
-              h = $height.val();
+          h = $height.val();
 
-          var r = new Rectangle(w, h);
+    var r = new Rectangle(w, h);
 
-                $perimeter.val(r.perimeter());
-                $area.val(r.area());
-                  
-    });
+        $perimeter.val(r.perimeter());
+            $area.val(r.area());
+              
+});
 
 });
